@@ -3,114 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Valentine Bissu ❤️</title>
+    <title>For My Valentine ❤️</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Proposal Page Styles */
+        .proposal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff4081 0%, #c62828 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .proposal-content {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .proposal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #c62828;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .proposal-subtitle {
+            font-size: 1.2rem;
+            color: #8b0000;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hearts {
+            font-size: 2rem;
+            color: #ff4081;
+            margin: 30px 0;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .hearts span {
+            margin: 0 10px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .btn-yes, .btn-no {
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .btn-yes {
+            background: #4CAF50;
+            color: white;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-yes:hover {
+            background: #388E3C;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-yes:active {
+            transform: scale(0.95);
+        }
+
+        .btn-no {
+            background: #f44336;
+            color: white;
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+            position: relative;
+            transition: all 0.1s ease;
+        }
+
+        /* Hide main site initially */
+        .main-site {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .main-site.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Floating hearts in background */
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 64, 129, 0.5);
+            animation: floatHeart 15s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Decorative roses -->
-    <div class="rose rose-1">🌹</div>
-    <div class="rose rose-2">🌹</div>
-    <div class="rose rose-3">🌹</div>
-    <div class="rose rose-4">🌹</div>
-    
-    <div class="container">
-        <header>
-            <h1>To My Beautiful Valentine I Love You Always</h1>
-            <p class="subtitle">These are only some of the many memories that we have shared together, but these are the few that will forever be in our hearts</p>
+    <!-- Valentine Proposal Page -->
+    <div class="proposal-container" id="proposalPage">
+        <!-- Floating hearts -->
+        <div class="floating-heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+        <div class="floating-heart" style="left: 20%; animation-delay: 1s;">❤️</div>
+        <div class="floating-heart" style="left: 30%; animation-delay: 2s;">❤️</div>
+        <div class="floating-heart" style="left: 40%; animation-delay: 3s;">❤️</div>
+        <div class="floating-heart" style="left: 50%; animation-delay: 4s;">❤️</div>
+        <div class="floating-heart" style="left: 60%; animation-delay: 5s;">❤️</div>
+        <div class="floating-heart" style="left: 70%; animation-delay: 6s;">❤️</div>
+        <div class="floating-heart" style="left: 80%; animation-delay: 7s;">❤️</div>
+        <div class="floating-heart" style="left: 90%; animation-delay: 8s;">❤️</div>
+        
+        <div class="proposal-content">
+            <div class="hearts">
+                <span>❤️</span>
+                <span>💕</span>
+                <span>💖</span>
+                <span>💘</span>
+                <span>💝</span>
+            </div>
             
-            <div class="music-player">
-                <div class="music-info">
-                    <i class="fas fa-music"></i>
-                    <span>Play Song</span>
-                </div>
-                <audio id="myAudio" controls>
-                    <source src="khat.mp3" type="audio/mpeg">
-                    Your browser does not support audio
-                </audio>
-            </div>
-        </header>
-
-        <main>
-            <!-- Memory 1 - WITH VIDEO -->
-            <div class="memory">
-                <div class="memory-date">June 27, 2025</div>
-                <h2>Our First Meeting</h2>
-                
-                <div class="memory-media">
-                    <video controls class="memory-video">
-                        <source src="first.mp4" type="video/mp4">
-                        Your browser does not support videos. Please update your browser.
-                    </video>
-                </div>
-                
-                <p class="memory-text">
-                    The day my life changed forever. I still remember how you smiled and my heart skipped a beat. From that moment, I knew you were someone special.
-                    
-                    Every time I watch this video, I feel that same excitement. You looked so beautiful that day, and I was so nervous but happy to finally meet you.
-                </p>
-            </div>
-
-            <!-- Memory 2 - WITH PHOTO -->
-            <div class="memory">
-                <div class="memory-date">July 15, 2023</div>
-                <h2>Our First Date</h2>
-                
-                <div class="memory-media">
-                    <img src="datekiss.jpg" alt="Our first date at the restaurant" class="memory-img">
-                </div>
-                
-                <p class="memory-text">
-                    That magical evening when we talked for hours without realizing how time flew. Your laughter was the sweetest sound I'd ever heard.
-                    
-                    I remember you ordered pasta and kept saying how delicious it was. The way your eyes lit up when you talked about your dreams... that's when I started falling for you.
-                </p>
-            </div>
-
-            <!-- Memory 3 - WITH PHOTO -->
-            <div class="memory">
-                <div class="memory-date">December 25, 2023</div>
-                <h2>First Christmas Together</h2>
-                
-                <div class="memory-media">
-                    <img src="christmas.jpg" alt="Christmas morning together" class="memory-img">
-                </div>
-                
-                <p class="memory-text">
-                    Waking up next to you on Christmas morning was the best gift I could ever ask for. Seeing your smile made the whole world brighter.
-                    
-                    You looked so cute in your Christmas pajamas, and the way you opened your presents with such joy... I knew I wanted to spend every Christmas with you.
-                </p>
-            </div>
-
-            <!-- Add more memories following this EXACT pattern -->
+            <h1 class="proposal-title">My Dearest Love</h1>
             
-        </main>
+            <p class="proposal-subtitle">
+                Before we begin our journey through our memories,<br>
+                I have a very important question for you...
+            </p>
+            
+            <div class="hearts">
+                <span>💖</span>
+                <span>💘</span>
+                <span>💝</span>
+            </div>
+            
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #c62828; margin: 30px 0;">
+                Will you be my Valentine? ❤️
+            </h2>
+            
+            <div class="options">
+                <button class="btn-yes" id="yesBtn">
+                    <i class="fas fa-heart"></i> YES! <i class="fas fa-heart"></i>
+                </button>
+                <button class="btn-no" id="noBtn">
+                    <i class="fas fa-times"></i> No
+                </button>
+            </div>
+            
+            <p style="margin-top: 30px; color: #666; font-size: 0.9rem;">
+                Choose wisely... 😉
+            </p>
+        </div>
+    </div>
 
-        <footer>
-            <p class="love-message">
-                Made with <span class="heart">❤️</span> for my forever Valentine
-            </p>
-            <p>Every day with you is a blessing I don't take for granted</p>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #a1887f;">
-                <i class="fas fa-music"></i> Click play to hear our song
-            </p>
-        </footer>
+    <!-- Main Website Content (Hidden Initially) -->
+    <div class="main-site" id="mainSite">
+        <!-- Decorative roses -->
+        <div class="rose rose-1">🌹</div>
+        <div class="rose rose-2">🌹</div>
+        <div class="rose rose-3">🌹</div>
+        <div class="rose rose-4">🌹</div>
+        
+        <div class="container">
+            <header>
+                <h1>To My Beautiful Valentine ❤️</h1>
+                <p class="subtitle">Thank you for saying yes! Let's relive our beautiful memories...</p>
+                
+                <div class="music-player">
+                    <div class="music-info">
+                        <i class="fas fa-music"></i>
+                        <span>Our Song</span>
+                    </div>
+                    <audio id="myAudio" controls>
+                        <source src="OurSong.mp3" type="audio/mpeg">
+                        Your browser does not support audio
+                    </audio>
+                </div>
+            </header>
+
+            <main>
+                <!-- Memory 1 - WITH VIDEO -->
+                <div class="memory">
+                    <div class="memory-date">June 27, 2023</div>
+                    <h2>Our First Meeting</h2>
+                    
+                    <div class="memory-media">
+                        <video controls class="memory-video">
+                            <source src="firstmeet.mp4" type="video/mp4">
+                            Your browser does not support videos. Please update your browser.
+                        </video>
+                    </div>
+                    
+                    <p class="memory-text">
+                        The day my life changed forever. I still remember how you smiled and my heart skipped a beat. From that moment, I knew you were someone special.
+                        
+                        Every time I watch this video, I feel that same excitement. You looked so beautiful that day, and I was so nervous but happy to finally meet you.
+                    </p>
+                </div>
+
+                <!-- Memory 2 - WITH PHOTO -->
+                <div class="memory">
+                    <div class="memory-date">July 15, 2023</div>
+                    <h2>Our First Date</h2>
+                    
+                    <div class="memory-media">
+                        <img src="firstdate.jpg" alt="Our first date at the restaurant" class="memory-img">
+                    </div>
+                    
+                    <p class="memory-text">
+                        That magical evening when we talked for hours without realizing how time flew. Your laughter was the sweetest sound I'd ever heard.
+                        
+                        I remember you ordered pasta and kept saying how delicious it was. The way your eyes lit up when you talked about your dreams... that's when I started falling for you.
+                    </p>
+                </div>
+
+                <!-- Memory 3 - WITH PHOTO -->
+                <div class="memory">
+                    <div class="memory-date">December 25, 2023</div>
+                    <h2>First Christmas Together</h2>
+                    
+                    <div class="memory-media">
+                        <img src="christmas.jpg" alt="Christmas morning together" class="memory-img">
+                    </div>
+                    
+                    <p class="memory-text">
+                        Waking up next to you on Christmas morning was the best gift I could ever ask for. Seeing your smile made the whole world brighter.
+                        
+                        You looked so cute in your Christmas pajamas, and the way you opened your presents with such joy... I knew I wanted to spend every Christmas with you.
+                    </p>
+                </div>
+
+                <!-- Add more memories here -->
+                
+            </main>
+
+            <footer>
+                <p class="love-message">
+                    Made with <span class="heart">❤️</span> for my forever Valentine
+                </p>
+                <p>Every day with you is a blessing I don't take for granted</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #a1887f;">
+                    <i class="fas fa-music"></i> Click play to hear our song
+                </p>
+            </footer>
+        </div>
     </div>
 
     <script>
-        // Simple script for better user experience
+        // Valentine Proposal Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const proposalPage = document.getElementById('proposalPage');
+            const mainSite = document.getElementById('mainSite');
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            
+            let clickCount = 0;
+            const messages = [
+                "Are you sure? 🥺",
+                "Maybe think again? 💔",
+                "Pretty please? 🙏",
+                "My heart is breaking... 💔",
+                "You're making me cry! 😢",
+                "Okay, fine... but I'll keep asking! 💘"
+            ];
+            
+            // YES button - Enter the site
+            yesBtn.addEventListener('click', function() {
+                // Celebration animation
+                this.innerHTML = '<i class="fas fa-heart"></i> YAY! <i class="fas fa-heart"></i>';
+                this.style.background = '#4CAF50';
+                this.style.transform = 'scale(1.2)';
+                this.style.boxShadow = '0 0 30px #4CAF50';
+                
+                // Show celebration message
+                const proposalContent = document.querySelector('.proposal-content');
+                proposalContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px;">
+                        <div style="font-size: 4rem; color: #ff4081; margin: 20px 0; animation: heartbeat 1s infinite;">
+                            ❤️💕💖💘💝
+                        </div>
+                        <h1 style="font-family: 'Dancing Script', cursive; font-size: 3rem; color: #c62828;">
+                            You said YES! 🎉
+                        </h1>
+                        <p style="font-size: 1.2rem; color: #8b0000; margin: 20px 0;">
+                            I'm the happiest person in the world! 😍
+                        </p>
+                        <div style="font-size: 2rem; color: #ff4081; margin: 30px 0;">
+                            💖💖💖💖💖
+                        </div>
+                        <p style="color: #666;">
+                            Taking you to our special memories...
+                        </p>
+                    </div>
+                `;
+                
+                // Fade out proposal page and show main site
+                setTimeout(() => {
+                    proposalPage.style.opacity = '0';
+                    setTimeout(() => {
+                        proposalPage.style.display = 'none';
+                        mainSite.classList.add('visible');
+                        
+                        // Start background music gently
+                        const audio = document.getElementById('myAudio');
+                        setTimeout(() => {
+                            audio.volume = 0.3;
+                            audio.play().catch(e => {
+                                console.log("Audio will play when user clicks");
+                            });
+                        }, 1000);
+                    }, 500);
+                }, 2000);
+            });
+            
+            // NO button - Move around and change text
+            noBtn.addEventListener('mouseover', function() {
+                clickCount++;
+                
+                // Move button randomly
+                const x = Math.random() * (window.innerWidth - this.offsetWidth);
+                const y = Math.random() * (window.innerHeight - this.offsetHeight);
+                
+                this.style.position = 'fixed';
+                this.style.left = `${x}px`;
+                this.style.top = `${y}px`;
+                
+                // Change button text
+                const messageIndex = Math.min(clickCount - 1, messages.length - 1);
+                this.innerHTML = `<i class="fas fa-times"></i> ${messages[messageIndex]}`;
+                
+                // Make button smaller each time
+                const scale = 1 - (clickCount * 0.1);
+                this.style.transform = `scale(${Math.max(scale, 0.5)})`;
+                
+                // Change color gradually
+                const red = Math.min(244 + clickCount * 10, 255);
+                const green = Math.max(67 - clickCount * 20, 0);
+                const blue = Math.max(54 - clickCount * 10, 0);
+                this.style.background = `rgb(${red}, ${green}, ${blue})`;
+                
+                // Add funny effects after many tries
+                if (clickCount > 3) {
+                    this.style.animation = 'shake 0.5s ease';
+                }
+                
+                // Reset click count after all messages
+                if (clickCount >= messages.length) {
+                    clickCount = 0;
+                }
+            });
+            
+            // Prevent No button from being clickable
+            noBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Make it jump away
+                const x = Math.random() * (window.innerWidth - this.offsetWidth);
+                const y = Math.random() * (window.innerHeight - this.offsetHeight);
+                
+                this.style.left = `${x}px`;
+                this.style.top = `${y}px`;
+                
+                // Show message
+                this.innerHTML = '<i class="fas fa-heart-broken"></i> You have to choose YES!';
+                this.style.background = '#ff9800';
+                
+                // Reset after a moment
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-times"></i> No';
+                    this.style.background = '';
+                }, 1000);
+            });
+            
+            // Add shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                    20%, 40%, 60%, 80% { transform: translateX(10px); }
+                }
+                
+                @keyframes heartbeat {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+        
+        // Main site functionality
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('myAudio');
             
             // Try gentle autoplay
             setTimeout(() => {
-                audio.volume = 0.5;
-                audio.play().catch(e => {
-                    console.log("Audio will play when user clicks");
-                });
-            }, 500);
+                if (audio) {
+                    audio.volume = 0.3;
+                    audio.play().catch(e => {
+                        console.log("Audio will play when user clicks");
+                    });
+                }
+            }, 1000);
             
             // Show loading messages for media
             document.querySelectorAll('img, video').forEach(media => {
