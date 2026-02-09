@@ -114,12 +114,12 @@ audio {
     background: #f5f5f5;
 }
 
-/* FIXED: Better video sizing */
+/* Videos have consistent 16:9 aspect ratio */
 .memory-video {
-    max-width: 100%;
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 400px;
+    aspect-ratio: 16/9; /* Standard video ratio */
     border-radius: 10px;
     border: 3px solid #ffcdd2;
     display: block;
