@@ -93,38 +93,39 @@ audio {
     font-size: 1.5rem;
 }
 
-/* FIXED: Better image container */
+/* Media container */
 .memory-media {
     width: 100%;
     margin: 20px 0;
     text-align: center;
 }
 
-/* FIXED: Better image sizing */
+/* Images - flexible sizing */
 .memory-img {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 500px;
     width: auto;
     height: auto;
     border-radius: 10px;
     border: 3px solid #ffcdd2;
     display: block;
     margin: 0 auto;
-    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    object-fit: contain;
     background: #f5f5f5;
 }
 
-/* Videos have consistent 16:9 aspect ratio */
+/* Videos - portrait size (800x1200 ratio) */
 .memory-video {
     width: 100%;
-    height: auto;
-    max-height: 400px;
-    aspect-ratio: 16/9; /* Standard video ratio */
+    max-width: 400px; /* Portrait width */
+    height: 600px; /* Portrait height (1.5 ratio) */
+    max-height: 600px;
     border-radius: 10px;
     border: 3px solid #ffcdd2;
     display: block;
     margin: 0 auto;
     background: #000;
+    object-fit: cover; /* Fill the area while keeping ratio */
 }
 
 /* Video controls styling */
@@ -205,11 +206,13 @@ footer {
     }
     
     .memory-img {
-        max-height: 300px;
+        max-height: 400px;
     }
     
     .memory-video {
-        max-height: 300px;
+        max-width: 300px;
+        height: 450px;
+        max-height: 450px;
     }
     
     .rose {
@@ -218,5 +221,13 @@ footer {
     
     audio {
         width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .memory-video {
+        max-width: 250px;
+        height: 375px;
+        max-height: 375px;
     }
 }
