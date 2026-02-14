@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>For My Valentine Bisu ❤️</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Proposal Page Styles */
+        /* Proposal Page Styles - Mobile Optimized */
         .proposal-container {
             position: fixed;
             top: 0;
@@ -21,17 +21,21 @@
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s ease;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Allow scrolling if content is too tall */
         }
 
         .proposal-content {
             text-align: center;
-            padding: 40px;
+            padding: 30px 20px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             animation: fadeInUp 0.8s ease;
+            margin: auto;
         }
 
         @keyframes fadeInUp {
@@ -47,39 +51,45 @@
 
         .proposal-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             color: #c62828;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: heartbeat 1.5s infinite;
+            line-height: 1.2;
         }
 
         .proposal-subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             color: #8b0000;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
         .hearts {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             color: #ff4081;
-            margin: 30px 0;
+            margin: 20px 0;
             animation: float 3s infinite ease-in-out;
         }
 
         .hearts span {
-            margin: 0 10px;
+            margin: 0 5px;
         }
 
         .options {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+            width: 100%;
+            align-items: center;
         }
 
         .btn-yes, .btn-no {
-            padding: 15px 40px;
+            width: 100%;
+            max-width: 280px;
+            padding: 15px 20px;
             font-size: 1.3rem;
             font-family: 'Dancing Script', cursive;
             font-weight: bold;
@@ -88,6 +98,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+            box-sizing: border-box;
         }
 
         .btn-yes {
@@ -98,7 +109,7 @@
 
         .btn-yes:hover {
             background: #388E3C;
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
         }
 
@@ -112,6 +123,11 @@
             box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
             position: relative;
             transition: all 0.1s ease;
+        }
+
+        .btn-no:hover {
+            background: #d32f2f;
+            transform: scale(1.05);
         }
 
         /* Hide main site initially */
@@ -149,6 +165,60 @@
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
+            }
+        }
+
+        /* Tablet and up */
+        @media (min-width: 768px) {
+            .options {
+                flex-direction: row;
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .btn-yes, .btn-no {
+                width: auto;
+                min-width: 150px;
+            }
+            
+            .proposal-content {
+                padding: 40px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 380px) {
+            .proposal-title {
+                font-size: 2.2rem;
+            }
+            
+            .btn-yes, .btn-no {
+                max-width: 240px;
+                padding: 12px 15px;
+                font-size: 1.2rem;
+            }
+            
+            .proposal-content {
+                padding: 20px 15px;
+            }
+            
+            h2[style*="font-family: 'Dancing Script'"] {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* Add hint for mobile users */
+        .mobile-hint {
+            display: none;
+            margin-top: 15px;
+            color: #c62828;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 480px) {
+            .mobile-hint {
+                display: block;
             }
         }
     </style>
@@ -189,7 +259,7 @@
                 <span>💝</span>
             </div>
             
-            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: #c62828; margin: 30px 0;">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 6vw, 2.5rem); color: #c62828; margin: 20px 0;">
                 Will you be my Valentine? ❤️
             </h2>
             
@@ -202,7 +272,11 @@
                 </button>
             </div>
             
-            <p style="margin-top: 30px; color: #666; font-size: 0.9rem;">
+            <p class="mobile-hint">
+                💌 If buttons appear cut off, try scrolling or rotating your phone
+            </p>
+            
+            <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
                 Choose wisely... 😉
             </p>
         </div>
